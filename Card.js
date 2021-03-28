@@ -6,7 +6,7 @@ class Card extends React.Component{
         this.state = {
             name: "",
             mycolor: props.bgcolor,
-            isHidden: false
+            id: props.id
         }
         
     }
@@ -29,7 +29,7 @@ class Card extends React.Component{
             textAlign: "center"
         }
         return(
-            <div style={style}>
+            <div id={this.props.id} style={style}>
                 {this.props.children}
             </div>
         )
