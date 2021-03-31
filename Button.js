@@ -9,8 +9,10 @@ class Button extends React.Component{
     }
 
         render(){
-            let backgroundColor = this.props.isHidden ? 'green' : 'red'
-            let textColor = this.props.isHidden ? 'green' : 'white'
+           // let backgroundColor = this.props.isHidden ? 'green' : 'red'
+          //  let textColor = this.props.isHidden ? 'green' : 'white'
+            let backgroundColor = determineBackgroundColor(this.props.isHidden, this.props.isMatched)
+            let textColor = determineTextColor(this.props.isHidden, this.props.isMatched)
             const style ={
                 padding: 10,
                 margin: 10,
@@ -23,11 +25,29 @@ class Button extends React.Component{
             }  
             return(
                 <button style={style} onClick={this.props.onClick}>
-                    A
+                    {this.props.name}
                 </button>
             )
         }
     
+}
+
+function determineBackgroundColor(isHidden, isMatched){
+    if (isMatched){
+        return "gray"
+    } else if (isHidden){
+        return "green"
+    }
+    return "red"
+}
+
+function determineTextColor(isHidden, isMatched){
+    if (isMatched){
+        return "gray"
+    } else if (isHidden){
+        return "green"
+    }
+    return "white"
 }
 
 export default Button
