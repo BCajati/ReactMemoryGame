@@ -112,36 +112,28 @@ class App extends React.Component {
       <div style={{display: gameOver ? "block" : "none"}}>
         <h1>GAME OVER. Hope you enjoyed it</h1>
       </div>
+      <div style={{display: gameOver ? "none" : "block"}}>
        <h2>Click on 2 cards to find a match</h2>
-      <div>
-        {this.state.buttons.map(item => (
-            <Button isHidden={item.isHidden} name={item.name} isMatched={item.isMatched}
-            onClick={() => this.onChangeHiddenState(item.id)} />    
-          ))}
-      </div>
-      <div style={{ display: showInfo ? "block" : "none" }}>
-        <p>No Match! Select Reset Button to Try again</p>
-        <button onClick={() => this.hideAll()}>RESET</button>
-      </div>  
-      <div style={{ display: showMatch ? "block" : "none" }}>
-        <p>You found a Match! Click Continue to keep going</p> 
-        <button onClick={() => this.removeMatches()}>Continue</button>      
-      </div>   
+        <div>
+          {this.state.buttons.map(item => (
+              <Button isHidden={item.isHidden} name={item.name} isMatched={item.isMatched}
+              onClick={() => this.onChangeHiddenState(item.id)} />    
+            ))}
+        </div>
+        <div style={{ display: showInfo ? "block" : "none" }}>
+          <p>No Match! Select Reset Button to Try again</p>
+          <button onClick={() => this.hideAll()}>RESET</button>
+        </div>  
+        <div style={{ display: showMatch ? "block" : "none" }}>
+          <p>You found a Match! Click Continue to keep going</p> 
+          <button onClick={() => this.removeMatches()}>Continue</button>      
+        </div>  
+      </div> 
     </div>
    
   );
   }
   
 }
-
-// function checkForMatch(cards){
-//   const displayedItems = cards.filter(card => card.isHidden == false)
-//   if (displayedItems.length == 2 ){
-//     if (displayedItems[0].name == displayedItems[1].name){
-//       return true;
-//     }   
-//   }
-//   return false;
-// }
 
 export default App;
